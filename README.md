@@ -1,7 +1,7 @@
 
 React Image Gallery 
 =========
-Hosted at [https://emoji-search-tarsh.netlify.app/](https://emoji-search-tarsh.netlify.app/)
+Hosted at [https://react-image-gallery-search.netlify.app/](https://react-image-gallery-search.netlify.app/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -9,7 +9,7 @@ It uses React.js for frontend user interface and commonly uses useState hook.
 
 Axios is used for efficient fetch requests
 
-[Pixabay](https://pixabay.com/api/docs/) is used for images search.
+[Pixabay API](https://pixabay.com/api/docs/) is used for images search.
 
 CSS is used for styling.
 
