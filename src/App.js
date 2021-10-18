@@ -4,8 +4,11 @@ import axios from 'axios'
 const App = () => {
   const [input, setInput] = useState('')
   const [images, setImages] = useState(null)
+  const [loading, setLoading] = useState(false)
   useEffect(() => {
     let cancel
+    setImages(null)
+    setLoading(true)
     axios({
       method: 'GET',
       url: `https://pixabay.com/api/?key=23909794-5f7b0447e28e92c392beac53e&q=${input}&image_type=photo&per_page=50`,
@@ -15,6 +18,7 @@ const App = () => {
         return data.largeImageURL
       })
       setImages(urls)
+      setLoading(false)
     }).catch(e => {
       if (axios.isCancel(e)) return
     })
@@ -28,7 +32,9 @@ const App = () => {
       <div className="input"><input type="text" placeholder="Search Images" onChange={(e) => { setInput(e.target.value) }} value={input} /></div>
       <div className="images">
         {images && images.map((data) => <><a className="image" href={data} target="_blank"><img src={data} /></a></>)}</div>
+        {loading&& <h1>Loading...</h1>}
       {images && images.length === 0 && input.length > 0 && <h1>No results found</h1>}
+
       <footer>
         <span>Images source:</span> <a href="https://pixabay.com/">
           <img className="rights" src="https://pixabay.com/static/img/public/medium_rectangle_a.png" alt="Pixabay" />
